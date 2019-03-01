@@ -19,11 +19,13 @@
               "main": "src/main.ts",
               "polyfills": "src/polyfills.ts",
               "tsConfig": "src/tsconfig.app.json",
-              "assets": [
-               
+              "assets": [                
+                "src/assets/"
               ],
               "styles": [
-                
+                "node_modules/primeicons/primeicons.css",
+                "node_modules/primeng/resources/themes/nova-light/theme.css",
+                "node_modules/primeng/resources/primeng.min.css"
               ],
               "scripts": [],
               "es5BrowserSupport": true
