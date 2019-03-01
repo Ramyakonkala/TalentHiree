@@ -15,7 +15,7 @@ export class LoginComponent {
       this.router.navigate(['/HRdashboard']);
     }   
     else {
-      this.router.navigate(['/grid']);
+      this.router.navigate(['/dashboard']);
       
     }
   }

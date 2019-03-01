@@ -30,30 +30,24 @@ export class GridComponent implements OnInit {
 
     constructor(private candidateDetailsService: CandidateDetailsService) { }
 
+    
+  display: boolean = false;
+    showDialog() {
+        this.display = true;
+    }
+  
+
     ngOnInit() {
-        // this.policyService.getPolicies().subscribe((data : any[])=>{
-        //     console.log(data);
-        //     this.policies = data;
-        // })
+    
           this.candidateDetailsService.getAllCandidates().subscribe((data : any[])=>{
             console.log(data);
             this.candidateDetails = data;
           })  
-        
-        // this.candidateDetails = [
-        //         {id:1, CandidateName:"ramya", RefferedEmpName:"sravani", JobTitile:".net", Resume:"path",  Rating:"5",  Status:"called for interview",  AppliedDate:"3/1/2019",    Actions:"edit",HRComments:"Profile matches with requirement" },
-        //         {id:2, CandidateName:"ramya", RefferedEmpName:"sravani", JobTitile:".net", Resume:"path",  Rating:"5",  Status:"called for interview",  AppliedDate:"3/1/2019",    Actions:"edit",HRComments:"Profile matches with requirement" },
-        //         {id:3, CandidateName:"ramya", RefferedEmpName:"sravani", JobTitile:".net", Resume:"path",  Rating:"5",  Status:"called for interview",  AppliedDate:"3/1/2019",    Actions:"edit",HRComments:"Profile matches with requirement" },
-        //         {id:4, CandidateName:"ramya", RefferedEmpName:"sravani", JobTitile:".net", Resume:"path",  Rating:"5",  Status:"called for interview",  AppliedDate:"3/1/2019",    Actions:"edit",HRComments:"Profile matches with requirement" },
-        //         {id:5, CandidateName:"ramya", RefferedEmpName:"sravani", JobTitile:".net", Resume:"path",  Rating:"5",  Status:"called for interview",  AppliedDate:"3/1/2019",    Actions:"edit",HRComments:"Profile matches with requirement" },
-        //         {id:6, CandidateName:"ramya", RefferedEmpName:"sravani", JobTitile:".net", Resume:"path",  Rating:"5",  Status:"called for interview",  AppliedDate:"3/1/2019",    Actions:"edit",HRComments:"Profile matches with requirement" },
-        //         {id:7, CandidateName:"ramya", RefferedEmpName:"sravani", JobTitile:".net", Resume:"path",  Rating:"5",  Status:"called for interview",  AppliedDate:"3/1/2019",    Actions:"edit",HRComments:"Profile matches with requirement" }
-        //     ]
-       
-        
+               
         this.cols = [
             { field: 'CandidateName', header: 'CandidateName' },
-            { field: 'Resume', header: 'Resume' },
+            { field: 'JobTitile', header: 'JobTitile' },
+            { field: 'Rating', header: 'Rating' },
             { field: 'Status', header: 'Status' },
             { field: 'Actions', header: 'Actions' }
         ];

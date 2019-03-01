@@ -4,15 +4,6 @@
         text-align: left;
     }
 
-
-    form.ng-invalid {
-        border: none;
-    }
-
-    p-calendar.ng-invalid {
-        border: none;
-    }
-
     textarea {
         resize: none;
         height: auto;
@@ -29,43 +20,18 @@
 <div class="panel panel-primary col-md-12" style="padding:0px;">
     <form  class="col-md-12" style="padding:0px;">
         <div style="padding-top:30px;" class="col-md-12">
-            <div class="col-md-12 form-group">
-                <div class="col-md-4">
-
-                </div>
-                <div class="col-md-8">
-                    <label>
-                        <input type="checkbox" id="otherDateCheckbox" checked >
-                    </label>
-                    Pick From Schedule
-                </div>
-            </div>
+            
 
             <div class="col-md-12 form-group" *ngIf="!manualFillDate">
                 <div class="col-md-4"><label class="fontSize">Date :<span style="color:red"> *</span></label></div>
                 <div class="col-md-8">
-                    
-                    <input type = "date">
-
+                    <select >
+                        <option>Select Date</option>
+                        <option *ngFor="let x of openingDates" >{{x}}</option>
+                    </select>
+                   
                 </div>
-            </div>
-
-
-            <div *ngIf="manualFillDate">
-                <div class="col-md-12 form-group">
-                    <div class="col-md-4"><label>Date:<span style="color:red"> *</span></label></div>
-                    <div class="col-md-8">
-                        <div class="input-group date trainingDate">
-                            <input type="text" class="form-control " formControlName="Date" #trainingDateControl />
-                            <label for="trainingDate" class="input-group-addon btn">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </label>
-                        </div>
-
-                     
-                    </div>
-                </div>
-            </div>
+            </div>            
 
             <div class="col-md-12 form-group" *ngIf="!manualFill">
                 <div class="col-md-4">
@@ -81,57 +47,14 @@
                 </div>
             </div>
 
-            <div class="col-md-12 form-group" *ngIf="!manualFill && !manualFillDate">
-                <div class="col-md-4"><label>Topics :<span style="color:red"> *</span></label></div>
+            <div class="col-md-12 form-group" >
+                <div class="col-md-4"><label>Job Description :<span style="color:red"> *</span></label></div>
                 <div class="col-md-8">
                     <textarea class="form-control" formControlName="Topics"  maxlength="500" readonly></textarea>                   
                 </div>
             </div>
 
-            <div *ngIf="manualFill">
-                <div class="col-md-12 form-group" *ngIf="!manualFillTechnology">
-                    <div class="col-md-4">
-                        <label>
-                            Technology :<span style="color:red"> *</span>
-                        </label>
-                    </div>
-                    <div class="col-md-8">
-                        <type-ahead *ngIf="showAllTechnologiesDropdown" [input]="typeAheadInputForTechnologies"
-                                    (typeAheadOnSelect)="onChangeTechnology($event)"
-                                    (typeAheadOnChange)="onChangeTechnology($event)">
-                        </type-ahead>
-                      
-                    </div>
-                </div>
-
-                <div class="col-md-12 form-group">
-                    <div class="col-md-4">
-
-                    </div>
-                    <div class="col-md-8" *ngIf="manualFillDate">
-
-                        <input type="checkbox" id="manualFillTechnologyCheckbox" >
-                        Other Technology
-                    </div>
-                </div>
-
-                <div class="col-md-12 form-group" *ngIf="manualFillTechnology">
-                    <div class="col-md-4"><label>Technology :<span style="color:red"> *</span></label></div>
-                    <div class="col-md-8">
-                        <input type="text" class="form-control" maxlength="500" formControlName="Technology" />
-                        
-                    </div>
-                </div>
-
-
-                <div class="col-md-12 form-group">
-                    <div class="col-md-4"><label>Topics :<span style="color:red"> *</span></label></div>
-                    <div class="col-md-8">
-                        <textarea class="form-control" formControlName="Topics" maxlength="500"></textarea>
-                      
-                    </div>
-                </div>
-            </div>
+      
 
 
             <div class="col-md-12 form-group">
@@ -184,7 +107,7 @@
 
             <div class="pull-right col-md-12 form-group">
                 <button class="btn btn-success margin-left-right-10 margin-bottom-20"
-                         style="float:right" [disabled]="!SaturdayTimesheetForm.valid">
+                         style="float:right" >
                     <i class="fa fa-thumbs-up"></i>
                     Submit
                 </button>

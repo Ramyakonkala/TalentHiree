@@ -20,7 +20,7 @@
               "polyfills": "src/polyfills.ts",
               "tsConfig": "src/tsconfig.app.json",
               "assets": [                
-                "src/assets/"
+                "src/app/assets/"              
               ],
               "styles": [
                 "node_modules/primeicons/primeicons.css",

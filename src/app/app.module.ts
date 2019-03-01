@@ -20,6 +20,7 @@ import {GridComponent} from './grid/grid.component';
 import {CandidateDetailsService} from './service/candidatedetails/candidatedetails.service';
 import {EmployeeComponent} from './employee/employee.component';
 import {ReferPopupComponent} from './refer-popup/refer-popup.component';
+import {RatingModule} from 'primeng/rating';
 
 const routes: Routes = [
 
@@ -53,7 +54,7 @@ const routes: Routes = [
     DialogModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryCandidatesDataService),
     RouterModule.forRoot(routes),  
-    
+    RatingModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [CandidateDetailsService],
